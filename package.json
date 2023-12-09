@@ -1,0 +1,8 @@
+{
+  "scripts": {
+    "run:all": "npx cypress run --record" 
+  },
+  "dependencies": {
+    "cypress": "^13.6.1"
+  }
+}
