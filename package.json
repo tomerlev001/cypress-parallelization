@@ -2,7 +2,7 @@
   "scripts": {
     "run:all": "npx cypress run --record",
     "run:all:p": "npx cypress run --record --parallel",
-    "run:all:k:p": "npx cypress run --record --key=cd8a27d6-2f14-4f7e-8aa2-2b080a6481f2a --parallel"
+    "run:all:k:p": "npx cypress run --record --key=a5fcb633-9b50-408e-8f05-72c0678f8fe3 --parallel"
   },
   "dependencies": {
     "cypress": "^13.6.1"
