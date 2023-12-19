@@ -1,11 +1,15 @@
 {
   "scripts": {
-    "test":"test",
-    "run:all": "npx cypress run --record --key b4dbcf6c-2a16-4f8b-a88f-6e97b2ffdaff",
+    "single": "npx cypress run --record --key b4dbcf6c-2a16-4f8b-a88f-6e97b2ffdaff --spec cypress/e2e/2-advanced-examples/actions.cy.js",
+    "test": "cypress-parallel -s run:all:record -t 4 -d cypress/e2e",
+    "cy:parallel": "cypress-parallel --record --key b4dbcf6c-2a16-4f8b-a88f-6e97b2ffdaff",
+    "run:all": "npx cypress run",
+    "run:all:record": "npx cypress run --record --key b4dbcf6c-2a16-4f8b-a88f-6e97b2ffdaff",
     "run:all:p": "npx cypress run --record --parallel",
     "run:all:k:p": "npx cypress run --record --key b4dbcf6c-2a16-4f8b-a88f-6e97b2ffdaff --parallel --spec cypress/e2e/2-advanced-examples/actions.cy.js"
   },
   "dependencies": {
-    "cypress": "^13.6.1"
+    "cypress": "^13.6.1",
+    "cypress-parallel": "^0.14.0"
   }
 }
