@@ -1,10 +1,10 @@
-import { AnythingApi } from "./httpbinApi/anythingApi";
+
 
 class BaseAPI {
-  public httpbinAnythingApi;
+//   public httpbinAnythingApi;
 
   constructor() {
-    this.httpbinAnythingApi = new AnythingApi();
+    // this.httpbinAnythingApi = new AnythingApi();
   }
 }
 
