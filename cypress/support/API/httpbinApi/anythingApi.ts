@@ -19,6 +19,11 @@ export interface AnythingRequest {
 
 export class AnythingApi implements ApiInterface<AnythingResponse> {
   public endpoint = "/anything";
+  public get: () => Cypress.Chainable<Cypress.Response<AnythingResponse>>;
+
+  constructor() {
+    this.get = () => getAll({ endpoint: this.endpoint });
+  }
 
   getAll(): Cypress.Chainable<Cypress.Response<AnythingResponse>> {
     return getAll({ endpoint: this.endpoint });
