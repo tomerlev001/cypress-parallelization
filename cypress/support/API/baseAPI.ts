@@ -1,11 +1,3 @@
-
-
-class BaseAPI {
-//   public httpbinAnythingApi;
-
-  constructor() {
-    // this.httpbinAnythingApi = new AnythingApi();
-  }
+export class BaseAPI {
+  constructor(public baseUrl = "https://httpbin.org") {}
 }
-
-export const baseAPI = new BaseAPI();

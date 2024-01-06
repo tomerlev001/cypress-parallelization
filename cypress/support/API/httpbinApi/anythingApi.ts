@@ -1,37 +1,39 @@
-import { StatusCodes } from "http-status-codes";
+import { getAll, post } from "../APIFunctions";
+import { ApiInterface } from "../APIInterface";
 
-export interface Anything {
+export interface AnythingResponse {
+  args: object;
+  data: object;
+  files: object;
+  form: object;
+  headers: object;
+  json: object;
+  method: string;
+  origin: string;
+  url: string;
+}
+
+export interface AnythingRequest {
   name: string;
 }
 
-export class AnythingApi {
-  // public apiClient;
+export class AnythingApi implements ApiInterface<AnythingResponse> {
+  public endpoint = "/anything";
 
-  constructor(public baseUrl: string, public endpoint: string) {
-    // super("/anything")
-    // this.endpoint = "/anything"
-    // this.apiClient = new APIClient("/anything");
+  getAll(): Cypress.Chainable<Cypress.Response<AnythingResponse>> {
+    return getAll({ endpoint: this.endpoint });
   }
 
-  getAll() {
-    return cy
-      .request({
-        method: "GET",
-        url: this.baseUrl + this.endpoint,
-      })
-      .then((response) => {
-        expect(response.status).to.eq(StatusCodes.OK);
-      });
+  post(
+    id: string,
+    body: AnythingRequest
+  ): Cypress.Chainable<Cypress.Response<AnythingResponse>> {
+    const endpoint = `${this.endpoint}/${id}`
+    
+    return post({ endpoint: endpoint, body });
   }
 
-  post(body: Anything) {
-    return cy.request({
-        method: "POST",
-        url: this.baseUrl + this.endpoint,
-        body: {body}
-    }).then(response => {
-        expect(response.status).to.eq(StatusCodes.OK)
-        return response.body
-    })
-}
+  hello() {
+    console.log("Implementation");
+  }
 }

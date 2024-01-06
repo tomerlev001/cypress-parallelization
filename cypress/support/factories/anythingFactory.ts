@@ -1,32 +1,36 @@
-import { Anything, AnythingApi } from "../API/httpbinApi/anythingApi";
-
+import { AnythingApi, AnythingRequest } from "../API/httpbinApi/anythingApi";
 
 class AnythingFactory {
-    private anythingApi;
+  private anythingApi;
+  private static _instance = new AnythingFactory();
 
-    constructor() {
-        this.anythingApi = new AnythingApi("https://httpbin.org", "/anything")
+  private constructor() {
+    this.anythingApi = new AnythingApi();
+  }
+
+  static get Instance() {
+    return this._instance;
+  }
+
+  createAnythingData() {
+    return { name: "Tomer" };
+  }
+
+  getAllAnything() {
+    this.anythingApi.getAll();
+  }
+
+  createRandomAnything() {
+    const body: AnythingRequest = {
+        name: "Tomer"
     }
 
-    createAnythingData() {
-        return { name: "Tomer"}
-    }
+    return this.anythingApi.post("23", body);
+  }
 
-    getAllAnything() {
-        this.anythingApi.getAll()
-    }
-
-    createAnything(anything: Anything) {
-        let body;
-        
-        if (anything) {
-            body = anything            
-        } else {
-            body = this.createAnythingData()
-        }
-
-        return this.anythingApi.post(anything)
-    }
+  willGetBug(){
+    this.anythingApi.hello()
+  }
 }
 
-export const anythingFactory = new AnythingFactory()
+export const anythingFactory = AnythingFactory.Instance;

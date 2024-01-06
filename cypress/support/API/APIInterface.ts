@@ -1,7 +1,5 @@
-interface APIClient {
-    baseUrl: string,
-    endpoint: string,
-    getAll?(): object,
-    getItem?(id: string): object,
-    postItem?(id: string): object,
+export interface ApiInterface<T> {
+    endpoint: string
+    get?: () => Cypress.Chainable<Cypress.Response<T>>
+    getAll?: () => Cypress.Chainable<Cypress.Response<T>>
 }

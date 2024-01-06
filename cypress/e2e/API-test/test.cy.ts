@@ -14,10 +14,13 @@ describe("hello", () => {
   });
 
   it("Httpbin - Anything", () => {
-    const anyObj: Anything = { name: "Tomer" };
+    // const anyObj: Anything = { name: "Tomer" };
 
-    anythingFactory.createAnything(anyObj).then((body) => {
-      console.log(body);
+    anythingFactory.createRandomAnything().then((response) => {
+      console.log(response)
+      console.log(response.body.data);
     });
+
+    anythingFactory.willGetBug()
   });
 });
