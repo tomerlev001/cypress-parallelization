@@ -1,0 +1,10 @@
+{
+  "suites": 2,
+  "tests": 6,
+  "passes": 6,
+  "pending": 0,
+  "failures": 0,
+  "start": "2023-12-19T22:02:04.482Z",
+  "duration": 5964,
+  "file": "cypress\\e2e\\1-getting-started\\todo.cy.js"
+}

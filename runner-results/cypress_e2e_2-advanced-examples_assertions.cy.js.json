@@ -1,0 +1,10 @@
+{
+  "suites": 3,
+  "tests": 9,
+  "passes": 9,
+  "pending": 0,
+  "failures": 0,
+  "start": "2023-12-19T22:02:11.286Z",
+  "duration": 7180,
+  "file": "cypress\\e2e\\2-advanced-examples\\assertions.cy.js"
+}
